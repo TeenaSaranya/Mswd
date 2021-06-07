@@ -1,0 +1,26 @@
+note over browser:
+client opens notes in browser
+end note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+server-->browser: HTML-code
+note over browser:
+client gives input and submit by 
+clicking submit button
+end note
+browser->server: HTTP POST https://studies.cs.helsinki.fi/exampleapp/new_notes
+server-->browser: HTML-status code 401
+note over server:
+ The server responds with HTTP status code 401
+end note
+note over browser:
+The browser reloads the page which causes 
+three more HTTP requests
+end note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.css
+server-->browser: main.css
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/main.js
+server-->browser: main.js
+
+
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/data.json
+server-->browser: [{ content: "HTML is easy", date: "2021-05-23" }, ...]
