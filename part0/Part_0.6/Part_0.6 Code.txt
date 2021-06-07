@@ -1,0 +1,22 @@
+note over browser:
+client opens single app notes in browser
+end note
+browser->server: HTTP GET https://studies.cs.helsinki.fi/exampleapp/notes
+note over browser:
+Browser sends only one request to server.
+end note
+note right of server:
+The post request contains only the new note.
+end note 
+note left of browser:
+Browser stays on same page and it does not send any further HTTP requests.
+end note
+note over server:
+The command document instructs the code to 
+fetch the page and to register to the event handler.
+end note
+server-->browser: HTML-code
+note over browser:
+Event handler creates a new node and renders the note and 
+sends new note to the server.
+end note
